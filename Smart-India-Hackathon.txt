@@ -1,0 +1,536 @@
+    Statement: 1624.
+To develop an Artificial Intelligence (AI) based model for electricity demand projection including peak demand projection for
+Delhi Power system.
+Expected Solution: An Artificial Intelligence based model be developed with suitable compensation methodology to
+factor the weather effects (like temperature humidity, and wind speed, rains/showers), public holidays/ weekly
+holidays, natural load growth, and real estate development.
+
+    Statement: 1672.
+Develop a ML Model based solution to refine Captcha.
+A solution that can differentiate between a bot and a human operator.
+    Problem Description. As part of the challenge, participating teams to develop a solution, mostly following a passive approach
+    through collection of environmental parameters and using AI/ML to analyze it in the backend to differentiate between bot and
+    human-being. The passive solution may capture environmental details through the browser context and analyze the same with
+    the help of ML models deployed in the backend. This solution, once accepted would be used by the UIDAI to protect all
+    backend APIs from DoS/DDoS based vulnerabilities.
+    The solution must meet the following requirements:-
+    The proposed solution must meet the following objectives.
+        Feature Requirements. The solution must define the list of environmental parameters that need to be captured to
+        differentiate between a bot and a human being. If passive parameter analysis is unable to differentiate, then the user
+        may be asked to do a few minimal interactions with the portal. User experience is important to UIDAI and hence human
+        interaction is to be limited. Frontend code to capture environmental or human interaction data must be compliant with
+        the javascript framework. Participating teams may choose to use any framework like React/TypeScript/Flutter to
+        demonstrate the solution.
+        As part of the solution, the required backend ML model to analyze the front- end capture of environment parameters or
+        human interaction data must be developed to demonstrate the solution. The ML model must be pluggable so that it can be
+        integrated with the UIDAI application stack to protect the APIs. The solution must adhere to the core privacy policies of
+        UIDAI.
+        Expected Solution. The solution must be complete with both frontend and backend design, corresponding code and ML model
+        to demonstrate the solution.
+
+We are not building a standalone, user-facing website or a mobile app. Instead, we are building a pluggable security service
+that is designed to be integrated into existing websites and web applications.
+
+The Project-outlines:
+1. System-Architecture:
+    Core Components-
+        1.1 Frontend: React/TypeScript behavioral tracking interface.
+        1.2 Backend: Node.js/ Python based API service with machine-learning interference engine.
+        1.3 Machine-Learning Model: Ensemble approach combining multiple detection algorithms and techniques.
+        1.4 Priyacy-Layer: UIDAI-Compliant data handling and anonymization.
+
+2. Environmental Parameters for bot detection:
+    Basic-Parameters or components-
+        1.1 Mouse Movement Patterns (Velocity, Acceleration, Jitter).
+        1.2 Keyboard dynamics (Timings, pressure if available).
+        1.3 Scroll behavior and page-interaction patterns.
+        1.4 Click-patterns and timing distributions.
+        1.5 Touch gestures(mobiles)-Pressure, speed, multi-touch patterns.
+    Device Fingerprinting (Privacy-Compliant)-
+        1.1 Screen resolutin and color-point changes.
+        1.2 Browser capabilities and feature detection.
+        1.3 Timezone and language preferences.
+        1.4 Hardware concurrency and memory hints.
+        1.5 Network timing characteristics.
+    Session Context-
+        1.1 Navigation patterns within the applications.
+        1.2 Time spent on different form elements.
+        1.3 Error patterns and correction behaviors.
+        1.4 Accessibility tool usage indicators.
+
+3. Progressive challenge system:
+    Risk Scoring Tiers-
+        1.1 Low risk (0-30 percent), silent approval.
+        1.2 Medium risk (31-70 Percent), minimal interaction (Single click/tap).
+        1.3 High risk (71-100 percent), traditional Captcha fallback.
+
+4. UIDAI Compliance Framework:
+    Privacy measures-
+        1.1 Data minimization and local processing.
+        1.2 Encrypted behavioral data transmission.
+        1.3 No permanent storage for biometric patterns.
+        1.4 Audit logging for compliance verification.
+        1.5 User consent mamangement.
+
+System-Architecture: We're gonna implement a robust microservice architecture that separates concerns for scalability and
+maintainability.
+    1. Frontend Collector(primeagen-captcha.js): A lightweight TypeScript library, integrated via a React hook, that gathers
+       behavioral data in the user's browser.
+    2. Backend API Gateway(Node.js/TypeScript): The primary backend service that handles API requests from the client application.
+       It orchestrates the verification process.
+    3. Backend ML Inference Service(Python/FastAPI): A specialized microservice whose sole purpose is to load the pre-trained
+       machine-learning-model and run predictions on demand.
+Detailed Workflow:
+    1. Page Load: A user visits a protected page. The primeagen-captcha.js script, managed by the usePrimeagenCaptcha hook, loads
+       asynchronously.
+    2. Passive Data Collection: The script begins listening for events—mouse movements, keyboard presses, screen resizes, etc;
+       and stores them locally in the browser's memory.
+    3. User Action: The user fills a form and clicks a protected button (for instance, get the freakin' OTP).
+    4. Token Generation: The React component's onClick handler calls the getToken() function from the usePrimeagenCaptcha hook.
+       This function bundles the collected behavioral data into a JSON object and encodes it into a Base64 string (the "token").
+    5. API Request: The frontend sends its standard API request (e.g., POST /api/send-otp) to the backend, including the
+       generated token in the request body.
+    6. Gateway Reception: The Node.js API Gateway receives the request. It extracts the token from the body.
+    7. Internal Orchestration: The Node.js service decodes the Base64 token to get the raw JSON behavioral data. It then makes a
+        server-to-server POST request to the Python ML Inference Service, forwarding this JSON data.
+    8. Machine-Learning Prediction: The Python ML Service receives the data. It runs a feature engineering function to convert
+        the raw data into a numerical vector that the model understands. It then feeds this vector into the loaded XGBoost model
+        and gets a prediction probability (the humanity score).
+    9. Score Return: The Python service returns a simple JSON response like { "human_score": 0.92 } back to the Node.js Gateway.
+   10. Decision Logic: The Node.js Gateway receives the score. It applies the business rules (e.g., is score > 0.7?).
+   11. Final Response: The gateway sends the final verdict back to the frontend application, such as { "success": true,
+       "message": "OTP sent" } or { "success": false, "challenge_required": true }.
+   12. UI Update: The React frontend receives the final response and acts accordingly—either proceeding with the action or
+       displaying a fallback interactive challenge.
+
+Environmental Parameters: The system will only collect non-personally identifiable behavioral data. No form content, PII, or
+browsing history is ever captured.
+    1. Mouse Dynamics: Path, velocity, acceleration, clicks, scroll patterns, hesitation metrics.
+    2. Keystroke Dynamics: Typing speed, flight time (time between key presses), hold time (key press duration),
+       error/correction rate.
+    3. Device-and-Browser Fingerprinting (Anonymized): Screen resolution, user agent, timezone, language, and a hashed signature
+       of fonts/plugins.
+    4. Timing & Interaction: Time on page before action, interaction delay after page load.
+    5. Touch Events (Mobile): Touch start/end coordinates, pressure, and size.
+
+*********************************************************************************************************************************
+--Deprecated:
+Used-folders and directories: This is the top-level directory that will contain all the individual services and components.
+theprimeagen-captcha/
+    |---api-gateway/                              --Node.js/TypeScript Backend for handling API requests
+        |--dist/                                  --Auto-generated by TypeScript compiler (compiled JS code)
+        |--src/
+            |--server.ts                          --The main Express server logic and API endpoint definition
+        |--.gitignore                             --Ignores node_modules, dist, .env files
+        |--package.json                           --Dependencies (Express, Axios, TypeScript, ts-node-dev)
+        |--tsconfig.json                          --TypeScript configuration for the Node.js backend
+    |---frontend/                                 --React/TypeScript Frontend application
+        |---public/
+            |--intex.html                         --The main html-shell for the React app
+        |--src/
+            |--components/
+                |--LoginComponent.tsx             --Example component that uses the captcha hook
+            |--hooks/
+                |--usePrimeagenCaptcha.ts         --The custom hook for collecting behavioral data
+            |--App.tsx                            --The main application component
+            |--index.tsx                          --The entry point that renders the React app
+        |--.gitignore                             --Specifies files for Git to ignore (e.g., node_modules)
+        |--package.json                           --Project metadata and dependencies (React, Axios, etc.)
+        |--tsconfig.json                          --TypeScript compiler configuration
+        |--vite.config.ts                         --Configuration for the Vite build tool (or similar)
+    |---ml-service/                               --Python/FastAPI service for ML model inference
+        |--app/
+            |--__init__.py                        --Makes the 'app' directory a Python package
+            |--main.py                            --The main FastAPI application logic with the /predict endpoint
+        |--models/
+            |--primeagen_captcha_v1.pkl           --The saved, pre-trained Machine-Learning model file
+        |--.gitignore                             --Ignores __pycache__, venv, etc.
+        |--Dockerfile                             --(Optional but recommended) Defines how to build a container image
+        |--requirements.txt                       --Python dependencies (fastapi, uvicorn, scikit-learn, xgboost)
+    |---training/                                 --Offline scripts and data for training the Machine-Learning model
+        |--data/
+            |--labeled_behavioral_data.csv        --The dataset used for training (human/bot labels)
+            |--exploration.ipynb                  --(Optional) Jupyter notebook for data analysis/visualization
+        |--notebooks/
+        |--scripts/
+            |--train_model.py                     --The Python script to train the model and save the .pkl file
+        |--requirements.txt                       --Dependencies for training (pandas, jupyter, matplotlib, etc.)
+    |---readme.md                                 --Main project documentation
+
+Let's test the server-in local-environment:
+    Terminal-One(Shell)-Starting the Machine-Learning Inference Service.
+--Navigate to the ml-service directory
+        cd theprimeagen-captcha/ml-service
+--Create and activate a virtual environment (recommended)
+        python3 -m venv venv
+        source venv/bin/activate
+--Installing dependencies
+        pip install -r requirements.txt
+--StartING the service (it will run on http://localhost:8000)
+        uvicorn app.main:app --reload
+
+    Terminal-Two(Shell)-Starting the API Gateway.
+--Navigate to the api-gateway directory
+        cd theprimeagen-captcha/api-gateway
+--Install dependencies
+        npm install
+--Start the server in development mode (it will run on http://localhost:3001)
+        npm run dev
+
+    Terminal-Three(Shell)-Starting the Frontend application.
+--Navigate to the frontend directory
+        cd theprimeagen-captcha/frontend
+--Install dependencies
+        npm install
+--Start the development server (it will likely run on http://localhost:5173 or similar)
+        npm run dev
+********************************************************************************************************************************
+
+This is our complete project structure for the intelligent-behavioral-captcha System-Architecture:
+intelligent-behavioral-captcha/
+├── frontend/                           # React + TypeScript UI
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── testing/
+│   │   │   │   ├── BehaviorTest.tsx           # Test component for hooks
+│   │   │   │   ├── MouseVisualizer.tsx        # Visual mouse tracking
+│   │   │   │   └── AnalyticsDashboard.tsx     # Real-time analytics
+│   │   │   ├── captcha/
+│   │   │   │   ├── BehavioralCaptcha.tsx      # Main captcha component
+│   │   │   │   ├── AdaptiveChallenge.tsx      # Dynamic challenge UI
+│   │   │   │   ├── RiskMeter.tsx              # Real-time risk display
+│   │   │   │   └── AccessibilityMode.tsx      # A11y compliant interface
+│   │   │   ├── analytics/
+│   │   │   │   ├── MouseTracker.tsx           # Mouse movement capture
+│   │   │   │   ├── KeystrokeAnalyzer.tsx      # Typing pattern analysis
+│   │   │   │   ├── TouchBehavior.tsx          # Mobile touch patterns
+│   │   │   │   └── DeviceFingerprint.tsx      # Device characteristics
+│   │   │   ├── dashboard/
+│   │   │   │   ├── AdminDashboard.tsx         # Analytics dashboard
+│   │   │   │   ├── ThreatMap.tsx              # Real-time threat viz
+│   │   │   │   ├── ModelMetrics.tsx           # ML model performance
+│   │   │   │   └── UserBehaviorGraph.tsx      # Behavior patterns
+│   │   │   └── integration/
+│   │   │       ├── UidaiPlugin.tsx            # UIDAI-specific plugin
+│   │   │       ├── APIConnector.tsx           # Backend integration
+│   │   │       └── PrivacyControls.tsx        # Privacy settings
+│   │   ├── hooks/
+│   │   │   ├── useBehaviorTracking.ts         # Behavior data collection
+│   │   │   ├── useRiskAssessment.ts           # Real-time risk scoring
+│   │   │   ├── useAdaptiveUI.ts               # Dynamic UI adjustments
+│   │   │   └── usePrivacyCompliance.ts        # Privacy enforcement
+│   │   ├── utils/
+│   │   │   ├── encryption.ts                  # Client-side encryption
+│   │   │   ├── fingerprinting.ts              # Device fingerprinting
+│   │   │   ├── biometrics.ts                  # Behavioral analysis
+│   │   │   └── privacy.ts                     # Data anonymization
+│   │   ├── types/
+│   │   │   ├── captcha.types.ts               # CAPTCHA interfaces
+│   │   │   ├── behavior.types.ts              # Behavioral data types
+│   │   │   └── api.types.ts                   # API response types
+│   │   └── config/
+│   │       ├── constants.ts                   # App constants
+│   │       ├── privacy.config.ts              # Privacy settings
+│   │       └── uidai.config.ts                # UIDAI compliance
+│   ├── public/
+│   │   ├── models/                            # Pre-trained models (WASM)
+│   │   ├── workers/                           # Web Workers for ML
+│   │   └── assets/                            # Static resources
+│   └── package.json                           # Dependencies
+│
+├── backend/                            # Node.js/Python Backend
+│   ├── api/
+│   │   ├── routes/
+│   │   │   ├── captcha.js                     # CAPTCHA endpoints
+│   │   │   ├── behavior.js                    # Behavior analysis API
+│   │   │   ├── analytics.js                   # Analytics endpoints
+│   │   │   ├── admin.js                       # Admin dashboard API
+│   │   │   └── integration.js                 # UIDAI integration
+│   │   ├── middleware/
+│   │   │   ├── auth.js                        # Authentication
+│   │   │   ├── rateLimit.js                   # Rate limiting
+│   │   │   ├── privacy.js                     # Privacy enforcement
+│   │   │   ├── encryption.js                  # Data encryption
+│   │   │   └── uidaiCompliance.js             # UIDAI validation
+│   │   ├── controllers/
+│   │   │   ├── CaptchaController.js           # CAPTCHA logic
+│   │   │   ├── BehaviorController.js          # Behavior processing
+│   │   │   ├── RiskController.js              # Risk assessment
+│   │   │   └── AnalyticsController.js         # Analytics processing
+│   │   └── validators/
+│   │       ├── behaviorSchema.js              # Input validation
+│   │       ├── captchaSchema.js               # CAPTCHA validation
+│   │       └── uidaiSchema.js                 # UIDAI compliance
+│   ├── services/
+│   │   ├── ml/
+│   │   │   ├── ModelService.js                # ML model management
+│   │   │   ├── PredictionService.js           # Real-time predictions
+│   │   │   ├── TrainingService.js             # Model retraining
+│   │   │   └── FeatureService.js              # Feature engineering
+│   │   ├── security/
+│   │   │   ├── EncryptionService.js           # Data encryption
+│   │   │   ├── TokenService.js                # JWT management
+│   │   │   ├── RateLimitService.js            # Traffic control
+│   │   │   └── AuditService.js                # Security logging
+│   │   ├── analytics/
+│   │   │   ├── BehaviorAnalytics.js           # Behavior insights
+│   │   │   ├── ThreatAnalytics.js             # Threat intelligence
+│   │   │   ├── ModelAnalytics.js              # ML performance
+│   │   │   └── UsageAnalytics.js              # Usage statistics
+│   │   └── integration/
+│   │       ├── UidaiService.js                # UIDAI API integration
+│   │       ├── PluginService.js               # Plugin management
+│   │       └── ComplianceService.js           # Regulatory compliance
+│   ├── database/
+│   │   ├── models/
+│   │   │   ├── User.js                        # User model
+│   │   │   ├── Session.js                     # Session model
+│   │   │   ├── BehaviorPattern.js             # Behavior data
+│   │   │   ├── ThreatLog.js                   # Security events
+│   │   │   └── Analytics.js                   # Analytics data
+│   │   ├── migrations/                        # DB migrations
+│   │   └── seeds/                             # Test data
+│   ├── config/
+│   │   ├── database.js                        # DB configuration
+│   │   ├── redis.js                           # Cache config
+│   │   ├── security.js                        # Security settings
+│   │   └── uidai.js                           # UIDAI compliance
+│   └── tests/                                 # API tests
+│
+├── ml-models/                          # Machine Learning Pipeline
+│   ├── data/
+│   │   ├── raw/                               # Raw behavioral data
+│   │   ├── processed/                         # Feature engineered data
+│   │   ├── training/                          # Training datasets
+│   │   └── validation/                        # Test datasets
+│   ├── notebooks/
+│   │   ├── EDA.ipynb                          # Exploratory analysis
+│   │   ├── FeatureEngineering.ipynb           # Feature development
+│   │   ├── ModelTraining.ipynb                # Model experiments
+│   │   ├── ModelEvaluation.ipynb              # Performance analysis
+│   │   └── BehaviorAnalysis.ipynb             # Behavior insights
+│   ├── src/
+│   │   ├── preprocessing/
+│   │   │   ├── behavioral_features.py         # Behavior feature extraction
+│   │   │   ├── device_features.py             # Device fingerprinting
+│   │   │   ├── temporal_features.py           # Time-based features
+│   │   │   └── interaction_features.py        # UI interaction features
+│   │   ├── models/
+│   │   │   ├── ensemble_model.py              # Ensemble classifier
+│   │   │   ├── neural_network.py              # Deep learning model
+│   │   │   ├── anomaly_detector.py            # Outlier detection
+│   │   │   └── behavioral_biometrics.py       # Biometric model
+│   │   ├── training/
+│   │   │   ├── train_pipeline.py              # Training orchestration
+│   │   │   ├── hyperparameter_tuning.py       # Model optimization
+│   │   │   ├── cross_validation.py            # Model validation
+│   │   │   └── federated_learning.py          # Privacy-preserving training
+│   │   ├── inference/
+│   │   │   ├── realtime_scorer.py             # Real-time predictions
+│   │   │   ├── batch_processor.py             # Batch processing
+│   │   │   ├── model_server.py                # Model serving
+│   │   │   └── edge_inference.py              # Client-side inference
+│   │   ├── evaluation/
+│   │   │   ├── metrics.py                     # Performance metrics
+│   │   │   ├── fairness.py                    # Bias evaluation
+│   │   │   ├── privacy.py                     # Privacy assessment
+│   │   │   └── adversarial.py                 # Robustness testing
+│   │   └── utils/
+│   │       ├── data_loader.py                 # Data loading utilities
+│   │       ├── feature_store.py               # Feature management
+│   │       ├── model_registry.py              # Model versioning
+│   │       └── privacy_utils.py               # Privacy utilities
+│   ├── models/                                # Trained models
+│   │   ├── production/                        # Production models
+│   │   ├── staging/                           # Staging models
+│   │   └── experimental/                      # Research models
+│   ├── experiments/                           # ML experiments
+│   └── requirements.txt                       # Python dependencies
+│
+├── mobile-sdk/                         # Mobile Integration SDK
+│   ├── ios/
+│   │   ├── Sources/
+│   │   │   ├── BehaviorCapture/              # iOS behavior tracking
+│   │   │   ├── TouchAnalytics/               # Touch pattern analysis
+│   │   │   ├── DeviceFingerprinting/         # iOS fingerprinting
+│   │   │   └── PrivacyCompliance/            # Privacy controls
+│   │   └── Package.swift                     # Swift package
+│   ├── android/
+│   │   ├── src/main/java/
+│   │   │   ├── behavior/                     # Android behavior tracking
+│   │   │   ├── analytics/                    # Touch analytics
+│   │   │   ├── fingerprinting/               # Device fingerprinting
+│   │   │   └── privacy/                      # Privacy enforcement
+│   │   └── build.gradle                      # Android dependencies
+│   └── react-native/
+│       ├── src/
+│       │   ├── BehaviorCaptcha.tsx           # RN component
+│       │   ├── TouchAnalyzer.tsx             # Touch behavior
+│       │   └── DeviceInfo.tsx                # Device characteristics
+│       └── package.json                      # RN dependencies
+│
+├── infrastructure/                     # DevOps & Deployment
+│   ├── docker/
+│   │   ├── Dockerfile.frontend               # Frontend container
+│   │   ├── Dockerfile.backend                # Backend container
+│   │   ├── Dockerfile.ml                     # ML service container
+│   │   └── docker-compose.yml                # Multi-service setup
+│   ├── kubernetes/
+│   │   ├── deployments/                      # K8s deployments
+│   │   ├── services/                         # K8s services
+│   │   ├── configmaps/                       # Configuration
+│   │   └── secrets/                          # Secrets management
+│   ├── terraform/
+│   │   ├── aws/                              # AWS infrastructure
+│   │   ├── azure/                            # Azure infrastructure
+│   │   └── gcp/                              # GCP infrastructure
+│   ├── monitoring/
+│   │   ├── prometheus/                       # Metrics collection
+│   │   ├── grafana/                          # Dashboards
+│   │   ├── elk/                              # Logging stack
+│   │   └── jaeger/                           # Distributed tracing
+│   └── scripts/
+│       ├── deploy.sh                         # Deployment script
+│       ├── backup.sh                         # Data backup
+│       └── monitoring.sh                     # Health checks
+│
+├── documentation/                      # Project Documentation
+│   ├── api/
+│   │   ├── openapi.yml                       # API specification
+│   │   ├── endpoints.md                      # Endpoint documentation
+│   │   └── authentication.md                 # Auth documentation
+│   ├── integration/
+│   │   ├── uidai-guide.md                    # UIDAI integration
+│   │   ├── plugin-development.md             # Plugin development
+│   │   └── sdk-usage.md                      # SDK documentation
+│   ├── privacy/
+│   │   ├── privacy-policy.md                 # Privacy policy
+│   │   ├── data-handling.md                  # Data practices
+│   │   └── compliance.md                     # Regulatory compliance
+│   ├── ml/
+│   │   ├── model-architecture.md             # ML model docs
+│   │   ├── feature-engineering.md            # Feature documentation
+│   │   └── training-guide.md                 # Training procedures
+│   └── deployment/
+│       ├── installation.md                   # Setup guide
+│       ├── configuration.md                  # Config reference
+│       └── troubleshooting.md                # Common issues
+│
+├── tests/                              # Testing Suite
+│   ├── unit/
+│   │   ├── frontend/                         # Frontend unit tests
+│   │   ├── backend/                          # Backend unit tests
+│   │   └── ml/                               # ML model tests
+│   ├── integration/
+│   │   ├── api/                              # API integration tests
+│   │   ├── ui/                               # UI integration tests
+│   │   └── ml-pipeline/                      # ML pipeline tests
+│   ├── e2e/
+│   │   ├── cypress/                          # E2E tests
+│   │   ├── playwright/                       # Browser automation
+│   │   └── mobile/                           # Mobile app tests
+│   ├── performance/
+│   │   ├── load-tests/                       # Load testing
+│   │   ├── stress-tests/                     # Stress testing
+│   │   └── benchmarks/                       # Performance benchmarks
+│   └── security/
+│       ├── penetration/                      # Security tests
+│       ├── privacy/                          # Privacy validation
+│       └── compliance/                       # Compliance tests
+│
+├── analytics/                          # Analytics & Monitoring
+│   ├── dashboards/
+│   │   ├── grafana-dashboards/               # Monitoring dashboards
+│   │   ├── kibana-dashboards/                # Log analysis
+│   │   └── custom-dashboards/                # Custom analytics
+│   ├── reports/
+│   │   ├── security-reports/                 # Security analytics
+│   │   ├── performance-reports/              # Performance metrics
+│   │   └── usage-reports/                    # Usage statistics
+│   └── alerts/
+│       ├── security-alerts/                  # Security notifications
+│       ├── performance-alerts/               # Performance alerts
+│       └── compliance-alerts/                # Compliance monitoring
+│
+├── plugins/                            # Third-party Integrations
+│   ├── wordpress/                            # WordPress plugin
+│   ├── drupal/                               # Drupal module
+│   ├── shopify/                              # E-commerce integration
+│   ├── salesforce/                           # CRM integration
+│   └── custom/                               # Custom integrations
+│
+├── research/                           # Research & Development
+│   ├── papers/                               # Academic papers
+│   ├── experiments/                          # Research experiments
+│   ├── prototypes/                           # Proof of concepts
+│   └── benchmarks/                           # Industry benchmarks
+│
+├── security/                           # Security Assets
+│   ├── certificates/                         # SSL certificates
+│   ├── keys/                                 # Encryption keys
+│   ├── policies/                             # Security policies
+│   └── audits/                               # Security audit reports
+│
+├── scripts/                            # Automation Scripts
+│   ├── setup/                                # Environment setup
+│   ├── deployment/                           # Deployment automation
+│   ├── maintenance/                          # Maintenance scripts
+│   └── utilities/                            # Utility scripts
+│
+├── .github/                            # GitHub Configuration
+│   ├── workflows/                            # CI/CD pipelines
+│   ├── ISSUE_TEMPLATE/                       # Issue templates
+│   └── PULL_REQUEST_TEMPLATE.md              # PR template
+│
+├── .gitignore                          # Git ignore rules
+├── README.md                           # Project overview
+├── CONTRIBUTING.md                     # Contribution guidelines
+├── LICENSE                             # Project license
+├── CHANGELOG.md                        # Version history
+└── package.json                        # Root dependencies
+
+Total Estimated Files: Something around 800+ files.
+Estimated Development Time: 8-12 months (But we've to complete this within 1-1.5 months for SIH).
+Team Size Recommendation: 8-12 developers.
+Core Technologies: 25+ different kinds technologies.
+Integration Points: 15+ external systems.
+
+Project-Abstract:
+    Core Concept-
+        Replaces traditional visual CAPTCHAs with a machine-learning system that analyzes human behavioral patterns
+        in real-time to distinguish between bots and humans without requiring explicit user challenges.
+    Technical Approach-
+        The system passively monitors user interactions (mouse movements, keystroke dynamics, click patterns, device
+        fingerprinting) and feeds this data into ML models trained to detect human-like behavior.
+        When confidence is low, minimal adaptive challenges are presented.
+    Key Innovations-
+        Instead of forcing users to solve puzzles, the system continuously scores behavior probability. A human
+        typing naturally, moving their mouse with slight tremors, and clicking with variable timing receives a high
+        human score and passes through invisibly.
+
+The Architecture:
+    Frontend: React/Typescript component that captures behavioral biometrics.
+    Backend: Node.js API with real-time Machine-Learning inference.
+    ML-Pipeline: Ensemble models (random forest+neural networks) for behavior classification.
+    Integration: RESTful plugin architecture for UIDAI compliance.
+
+Critical Challenges:
+    The system must balance false positives (blocking real humans) against security effectiveness. Privacy compliance
+    adds complexity since behavioral data is sensitive. Model accuracy depends heavily on diverse training data
+    across different user demographics and devices.
+
+**********************************************************************************************************************
+The final-Outline:
+    Traditional CAPTCHAs force users to solve visual puzzles that create accessibility barriers and user frustration.
+    Our Intelligent Behavioral CAPTCHA system eliminates these challenges by analyzing natural user behavior
+    patterns to distinguish humans from bots. The system continuously monitors mouse movements, keystroke timing,
+    click patterns, and device characteristics, feeding this data into machine learning models trained to recognize
+    human-like interactions. When a user types with natural rhythm variations, moves their mouse with slight
+    tremors, or clicks with human-like timing inconsistencies, they receive a high probability score and pass
+    through invisibly. Only when the system detects suspicious behavior does it present minimal adaptive challenges.
+    Built with React and TypeScript for the frontend and Node.js for the backend, the system uses ensemble machine
+    learning models for real-time behavioral analysis. The architecture includes a RESTful API designed for seamless
+    integration with existing systems, particularly government applications requiring UIDAI compliance. This
+    approach maintains security effectiveness while dramatically improving user experience, especially for users
+    with disabilities who struggle with traditional visual CAPTCHAs.
+

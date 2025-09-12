@@ -1,0 +1,47 @@
+SIH-Presentation-Script: From ThePrimeagen's Team.
+The Opening-Section:
+    First-Two-Slides (The Opening-Section) (Avantika Kanwar and Chandan Sharma)
+        Slide-One: Chandan Kumar
+            Good morning everyone! I'm Chandan Kumar, and I'm excited to present our solution for problem statement
+            1672-Developing a machine-learning based solution to refine Captcha-systems.
+        Slide-Two: Avantika Kanwar
+            Thank you Chandan. I'm Avantika Kanwar. Our team has decided to develop an Intelligent behavioral Machine
+            Learning Model that authenticates users by analyzing their behavioral patterns instead of relying on
+            visual patterns. Now let me hand over to Gauransh and Bhavesh to explain our technical approach.
+
+
+    Next-Two-Slides (The Middle-Part) (Gauransh Rajoria and Bhavesh Kanwar)
+        Slide-Three:Gauransh Rajoria
+            Thank you Avantika. I'm Gauransh Rajoria. Let me walk you through our Technical Architecture and
+            Implementation. We're basically using --
+                React with TypeScript and TailWind-CSS for frontend development, also for responsive UI.
+                Node.js with FastAPI for our backend services and session management.
+            There are also some other components like MangoDB for database management, and more, as you can see in
+            our current slide.
+        Slide-Four: Bhavesh Sharma
+            Thank you Gauransh. I'm Bhavesh Sharma and let me address our Feasibility Analysis and Challenge
+            Mitigation.
+                As you can see here, our project will do real-time behavioral analysis using machine learning that
+                adapts to user behavior over time.
+                We will also ensure data privacy and security by anonymizing user data and complying with data
+                protection regulations. There're multiple things that we've included in our slide, just to give you
+                a proper analysis and solutions for the challenges that we might face. Like, the proper Model
+                Accuracy, Efficient performace, Scalability, and User Experience.
+
+    Last-Two-Slides (The Closing-Section) (Rohit Choudhary and Komal Shekhawat)
+        Slide-Five: Komal Shekhawat
+            Thank you Bhavesh. I'm Komal Shekhawat and let me highlight the Impact and Benefits of our solution.
+            Our solution will target a significant user base, including Citizens, Government, and also Developers.
+            On top of that, it will enhance security by reducing the risk of automated attacks and fraud. Also, our
+            solution also aligns with UIDAI technical specifications and privacy policies.
+        Slide-Six: Rohit Choudhary
+            So, what we are building, I'm the leader of this team, Rohit Choudhary and we're a building a piece of software
+            that basically include multiple-components, like a JavaScript Library (For the core behavioral system),
+            A plugin architecture to integrate with existing systems and A demo website to showcase the functionality.
+
+            For UIDAI Security: It's going to be a pluggable security module that government websites can integrate
+            to their existing authentication flows to protect APIs and forms.
+            Currently, we've also tested the Behavior-Tracker-Testing-System, that can do real-time tracking of the
+            components like Mouse Movements, Keystrokes Dynamics, Touch Dynamics, and more.
+
+            Here are the whole predicted directories that we've estimated to build this project...
