@@ -16,7 +16,7 @@ The Opening-Section:
             Implementation. We're basically using --
                 React with TypeScript and TailWind-CSS for frontend development, also for responsive UI.
                 Node.js with FastAPI for our backend services and session management.
-            There are also some other components like MangoDB for database management, and more, as you can see in
+            There are also some other components like MongoDB for database management, and more, as you can see in
             our current slide.
         Slide-Four: Bhavesh Sharma
             Thank you Gauransh. I'm Bhavesh Sharma and let me address our Feasibility Analysis and Challenge
@@ -45,3 +45,8 @@ The Opening-Section:
             components like Mouse Movements, Keystrokes Dynamics, Touch Dynamics, and more.
 
             Here are the whole predicted directories that we've estimated to build this project...
+
+1. UIDAI Full-form: Unique Identification Authority of India.
+2. APIs: An API (Application Programming Interface) is a set of rules, protocols, and tools that allows different software
+applications to communicate and exchange data with each other. Instead of needing to know the internal workings of another
+system.
