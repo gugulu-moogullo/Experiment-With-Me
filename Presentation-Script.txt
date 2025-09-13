@@ -50,3 +50,14 @@ The Opening-Section:
 2. APIs: An API (Application Programming Interface) is a set of rules, protocols, and tools that allows different software
 applications to communicate and exchange data with each other. Instead of needing to know the internal workings of another
 system.
+3. Why traditional Captcha-systems are not enough?
+    a. They can be easily bypassed by advanced bots using machine learning techniques.
+    b. They often frustrate users, leading to a poor user experience.
+    c. They may not be accessible to all users, including those with disabilities.
+4. Behavioral Patterns: Behavioral patterns refer to the unique ways in which individuals interact with digital systems.
+
+5. Why our project makes sense?
+    a. Enhanced Security: By analyzing behavioral patterns, our system can more accurately distinguish between humans and bots.
+    b. Improved User Experience: Users won't have to deal with frustrating Captcha challenges, leading to a smoother interaction.
+    c. Accessibility: Our solution is designed to be inclusive, ensuring that all users can access online services without
+       barriers.
