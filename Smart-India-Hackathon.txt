@@ -1,37 +1,4 @@
-    Statement: 1624.
-To develop an Artificial Intelligence (AI) based model for electricity demand projection including peak demand projection for
-Delhi Power system.
-Expected Solution: An Artificial Intelligence based model be developed with suitable compensation methodology to
-factor the weather effects (like temperature humidity, and wind speed, rains/showers), public holidays/ weekly
-holidays, natural load growth, and real estate development.
-
-    Statement: 1672.
-Develop a ML Model based solution to refine Captcha.
-A solution that can differentiate between a bot and a human operator.
-    Problem Description. As part of the challenge, participating teams to develop a solution, mostly following a passive approach
-    through collection of environmental parameters and using AI/ML to analyze it in the backend to differentiate between bot and
-    human-being. The passive solution may capture environmental details through the browser context and analyze the same with
-    the help of ML models deployed in the backend. This solution, once accepted would be used by the UIDAI to protect all
-    backend APIs from DoS/DDoS based vulnerabilities.
-    The solution must meet the following requirements:-
-    The proposed solution must meet the following objectives.
-        Feature Requirements. The solution must define the list of environmental parameters that need to be captured to
-        differentiate between a bot and a human being. If passive parameter analysis is unable to differentiate, then the user
-        may be asked to do a few minimal interactions with the portal. User experience is important to UIDAI and hence human
-        interaction is to be limited. Frontend code to capture environmental or human interaction data must be compliant with
-        the javascript framework. Participating teams may choose to use any framework like React/TypeScript/Flutter to
-        demonstrate the solution.
-        As part of the solution, the required backend ML model to analyze the front- end capture of environment parameters or
-        human interaction data must be developed to demonstrate the solution. The ML model must be pluggable so that it can be
-        integrated with the UIDAI application stack to protect the APIs. The solution must adhere to the core privacy policies of
-        UIDAI.
-        Expected Solution. The solution must be complete with both frontend and backend design, corresponding code and ML model
-        to demonstrate the solution.
-
-We are not building a standalone, user-facing website or a mobile app. Instead, we are building a pluggable security service
-that is designed to be integrated into existing websites and web applications.
-
-The Project-outlines:
+*The Project-outlines: Deprecated-project-outline and Final-Outline.*
 1. System-Architecture:
     Core Components-
         1.1 Frontend: React/TypeScript behavioral tracking interface.
@@ -157,33 +124,6 @@ theprimeagen-captcha/
         |--requirements.txt                       --Dependencies for training (pandas, jupyter, matplotlib, etc.)
     |---readme.md                                 --Main project documentation
 
-Let's test the server-in local-environment:
-    Terminal-One(Shell)-Starting the Machine-Learning Inference Service.
---Navigate to the ml-service directory
-        cd theprimeagen-captcha/ml-service
---Create and activate a virtual environment (recommended)
-        python3 -m venv venv
-        source venv/bin/activate
---Installing dependencies
-        pip install -r requirements.txt
---StartING the service (it will run on http://localhost:8000)
-        uvicorn app.main:app --reload
-
-    Terminal-Two(Shell)-Starting the API Gateway.
---Navigate to the api-gateway directory
-        cd theprimeagen-captcha/api-gateway
---Install dependencies
-        npm install
---Start the server in development mode (it will run on http://localhost:3001)
-        npm run dev
-
-    Terminal-Three(Shell)-Starting the Frontend application.
---Navigate to the frontend directory
-        cd theprimeagen-captcha/frontend
---Install dependencies
-        npm install
---Start the development server (it will likely run on http://localhost:5173 or similar)
-        npm run dev
 ********************************************************************************************************************************
 
 This is our complete project structure for the intelligent-behavioral-captcha System-Architecture:
@@ -519,18 +459,6 @@ Critical Challenges:
     adds complexity since behavioral data is sensitive. Model accuracy depends heavily on diverse training data
     across different user demographics and devices.
 
-**********************************************************************************************************************
-The final-Outline:
-    Traditional CAPTCHAs force users to solve visual puzzles that create accessibility barriers and user frustration.
-    Our Intelligent Behavioral CAPTCHA system eliminates these challenges by analyzing natural user behavior
-    patterns to distinguish humans from bots. The system continuously monitors mouse movements, keystroke timing,
-    click patterns, and device characteristics, feeding this data into machine learning models trained to recognize
-    human-like interactions. When a user types with natural rhythm variations, moves their mouse with slight
-    tremors, or clicks with human-like timing inconsistencies, they receive a high probability score and pass
-    through invisibly. Only when the system detects suspicious behavior does it present minimal adaptive challenges.
-    Built with React and TypeScript for the frontend and Node.js for the backend, the system uses ensemble machine
-    learning models for real-time behavioral analysis. The architecture includes a RESTful API designed for seamless
-    integration with existing systems, particularly government applications requiring UIDAI compliance. This
-    approach maintains security effectiveness while dramatically improving user experience, especially for users
-    with disabilities who struggle with traditional visual CAPTCHAs.
+*********************************************************************************************************************************
+The project-outlines and things we're corrently implementing, with almost real-time like updates. Help me god.
 

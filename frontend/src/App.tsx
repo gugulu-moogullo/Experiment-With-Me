@@ -1,7 +1,7 @@
 import React from 'react';
-import BehaviorTest from './components/testing/BehaviorTest';
+import BehaviorTestWithAPI from './components/testing/BehaviorTestWithAPI';
 function App() {
-    return <BehaviorTest />;
+    return <BehaviorTestWithAPI />;
 }
 
 export default App;

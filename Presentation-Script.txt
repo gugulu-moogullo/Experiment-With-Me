@@ -63,3 +63,11 @@ system.
        barriers.
 
 5. Full-form of CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart.
+
+6. Uniqueness of our project:
+    a. Behavioral Analysis: Unlike traditional Captcha systems that rely on visual challenges, our solution focuses on
+       analyzing user behavior, making it more difficult for bots to mimic human actions.
+    b. Machine Learning Integration: Our system continuously learns and adapts to new behavioral patterns, enhancing its
+       effectiveness over time.
+    c. Privacy Considerations: We prioritize user privacy by anonymizing data and ensuring compliance with data protection
+       regulations.
