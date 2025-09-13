@@ -61,3 +61,5 @@ system.
     b. Improved User Experience: Users won't have to deal with frustrating Captcha challenges, leading to a smoother interaction.
     c. Accessibility: Our solution is designed to be inclusive, ensuring that all users can access online services without
        barriers.
+
+5. Full-form of CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart.
