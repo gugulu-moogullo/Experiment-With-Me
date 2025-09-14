@@ -1,7 +1,7 @@
 import React from 'react';
-import BehaviorTestWithAPI from './components/testing/BehaviorTestWithAPI';
+import CompleteCaptchaSystem from './components/captcha/CompleteCaptchaSystem';
 function App() {
-    return <BehaviorTestWithAPI />;
+    return <CompleteCaptchaSystem />;
 }
 
 export default App;
