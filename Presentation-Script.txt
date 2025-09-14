@@ -1,73 +1,66 @@
 SIH-Presentation-Script: From ThePrimeagen's Team.
 The Opening-Section:
-    First-Two-Slides (The Opening-Section) (Avantika Kanwar and Chandan Sharma)
-        Slide-One: Chandan Kumar
-            Good morning everyone! I'm Chandan Kumar, and I'm excited to present our solution for problem statement
-            1672-Developing a machine-learning based solution to refine Captcha-systems.
-        Slide-Two: Avantika Kanwar
-            Thank you Chandan. I'm Avantika Kanwar. Our team has decided to develop an Intelligent behavioral Machine
-            Learning Model that authenticates users by analyzing their behavioral patterns instead of relying on
-            visual patterns. Now let me hand over to Gauransh and Bhavesh to explain our technical approach.
+********************************************************************************************************************************
+    First-Two-Slides (Opening-Section) (Rohit-Choudhary and Komal-Shekhawat)
+        Position: Rohit Choudhary-(ThePrimeagen's Team-Leader)
+        Position: Komal Shekhawat-(ThePrimeagen's Team Co-Leader)
+
+        [Slide-One:(The Introductional-Slide)]+[Slide-Two (The Project's Outline)]
+Rohit Choudhary (Team-Leader): Introduction-
+    Good-morning everyone, my name is Rohit Choudhary, and I'm the team-leader for team ThePrimeagen, and I'm handling the
+    complete development. We're here to present.
+    Our project called, An-Intelligent-Behavioral Machine-Learning Model that refines Captchas. Our project addresses
+    problem statement ID-1672, which focuses on developing a machine-learning based solution to refine Captchas. This
+    falls under the theme of Cybersecurity, Authentication and Smart-Automation.
+        Now, let me introduce our Co-Leader of the team, Komal Shekhawat.And she's handling the workflow and deadlines
+        for ourteam.
+Komal Shekhawat (Team's Co-Leader): Talks about the problem and it's solution-
+    Thank-you Rohit, so the core-issues that we're tackling is the accessibility problems caused by traditional-captchas,
+    such as those that require annoying visual-patters, and those things are very unproductive.
+        Our solution proposes an Machine-Learning powered authentication system that analyzes user behavioral patterns,
+        like mouse movements, keystrokes, typing-speed, to verify a user's identity.
+            This approach aims to reduce user-friction while maintaining high-security standards and eliminating
+            the accessibility issues often faced with traditional-captchas.
+
+*******************************************************************************************************************************
+    Slide-Three and Slide-Four (Gauransh-Rajoria and Bhavesh-Sharma)
+    Position: Gauransh Rajoria-(Frontend-Developer)
+    Rosition: Bhavesh Sharma-(Backend-Developer)
+
+        [Slide-Three:(Frontend/Backend Development)]+[Slide-Four:(Potential Changes and Processes)]
+Gauransh Rajoria (Frontend-Developer): Now, Gauransh and Bhavesh will present the Development-Portion and the processes.
+    Hello, I'm Gauransh Rajoria, and I've led the Frontend-Development. For our prototype, we've chosen React with
+    TypeScript for it's Scalability, and TailWind-CSS to create a modern and accessible user interface.
+        This architecture is designed to be pluggable, meaning it can be seamlessly integrated into existing we-services
+        through RESTful API.
+Bhavesh Sharma (Backend-Developer): With Gauransh
+    Hello everyone, my name is Bhavesh Sharma and I'm the Backend-Developer. Our backend is built with either Node.js
+    or Python FastAPI for high performance and efficiency. We're also using Redis for session management, and our
+    databases are MongoDB for storing behavioral patterns and PostSQL for user data.
+        We will also ensure data-privacy-and-security by anonymizing user data and complying with data protection
+        regulations.
+
+******************************************************************************************************************************
+    Slide-Four and Slide-Five (Avantika Kanwat and Chandan Kumar)
+    Position: Avantika Kanwar, Chandan Kumar-(Manages the Research/Analytics Sections)
+
+        [Slide-Five:(Chandan Kumar)]+[Slide-Six:(Avantika Kanwar)]
+Chandan Kumar: With Avantika Kanwar
+    Hello everyone, I'm Chandan Kumar, one of the researchers on this project. Our solution is build on a foundation
+    of extensive research into behavioral biometrics and existing frameworks. We're focusing on creating a privacy-first
+    approach that is compliant with UIDAI data-protection policies and other standards like GDPR.
+        We're also mitigating potential challenges, such as balancing accuracy and security, by using continous model
+        retraining with fedrated learning and user-inputs.
+Avantika Kanwar: WIth Chandan Kumar
+    I'm Avantika Kanwar, the second researcher. Our analysis shows significant benefits and mesurable outcomes. To
+    validate our approach, we conducted a user-survey, and the results have been over-whelm-ingly positive. The feedback
+    shows a strong preference for our non-intrusive method over traditional Captchas.
+        For citizens, our solution offers a seamless and accessible authentication experience, it basically increases
+        the user-satisfaction and shapes the user-experience.
+
+Chandan Kumar (Again): After Avantika
+    So, for government and industry, it provides enhanced security for critical digital-services and a projected
+    60-percent reduction in authentication time.
+        Our system aims for a bot detection accuracy of over 95-percent with minimal false positives.
 
 
-    Next-Two-Slides (The Middle-Part) (Gauransh Rajoria and Bhavesh Kanwar)
-        Slide-Three:Gauransh Rajoria
-            Thank you Avantika. I'm Gauransh Rajoria. Let me walk you through our Technical Architecture and
-            Implementation. We're basically using --
-                React with TypeScript and TailWind-CSS for frontend development, also for responsive UI.
-                Node.js with FastAPI for our backend services and session management.
-            There are also some other components like MongoDB for database management, and more, as you can see in
-            our current slide.
-        Slide-Four: Bhavesh Sharma
-            Thank you Gauransh. I'm Bhavesh Sharma and let me address our Feasibility Analysis and Challenge
-            Mitigation.
-                As you can see here, our project will do real-time behavioral analysis using machine learning that
-                adapts to user behavior over time.
-                We will also ensure data privacy and security by anonymizing user data and complying with data
-                protection regulations. There're multiple things that we've included in our slide, just to give you
-                a proper analysis and solutions for the challenges that we might face. Like, the proper Model
-                Accuracy, Efficient performace, Scalability, and User Experience.
-
-    Last-Two-Slides (The Closing-Section) (Rohit Choudhary and Komal Shekhawat)
-        Slide-Five: Komal Shekhawat
-            Thank you Bhavesh. I'm Komal Shekhawat and let me highlight the Impact and Benefits of our solution.
-            Our solution will target a significant user base, including Citizens, Government, and also Developers.
-            On top of that, it will enhance security by reducing the risk of automated attacks and fraud. Also, our
-            solution also aligns with UIDAI technical specifications and privacy policies.
-        Slide-Six: Rohit Choudhary
-            So, what we are building, I'm the leader of this team, Rohit Choudhary and we're a building a piece of software
-            that basically include multiple-components, like a JavaScript Library (For the core behavioral system),
-            A plugin architecture to integrate with existing systems and A demo website to showcase the functionality.
-
-            For UIDAI Security: It's going to be a pluggable security module that government websites can integrate
-            to their existing authentication flows to protect APIs and forms.
-            Currently, we've also tested the Behavior-Tracker-Testing-System, that can do real-time tracking of the
-            components like Mouse Movements, Keystrokes Dynamics, Touch Dynamics, and more.
-
-            Here are the whole predicted directories that we've estimated to build this project...
-
-1. UIDAI Full-form: Unique Identification Authority of India.
-2. APIs: An API (Application Programming Interface) is a set of rules, protocols, and tools that allows different software
-applications to communicate and exchange data with each other. Instead of needing to know the internal workings of another
-system.
-3. Why traditional Captcha-systems are not enough?
-    a. They can be easily bypassed by advanced bots using machine learning techniques.
-    b. They often frustrate users, leading to a poor user experience.
-    c. They may not be accessible to all users, including those with disabilities.
-4. Behavioral Patterns: Behavioral patterns refer to the unique ways in which individuals interact with digital systems.
-
-5. Why our project makes sense?
-    a. Enhanced Security: By analyzing behavioral patterns, our system can more accurately distinguish between humans and bots.
-    b. Improved User Experience: Users won't have to deal with frustrating Captcha challenges, leading to a smoother interaction.
-    c. Accessibility: Our solution is designed to be inclusive, ensuring that all users can access online services without
-       barriers.
-
-5. Full-form of CAPTCHA: Completely Automated Public Turing test to tell Computers and Humans Apart.
-
-6. Uniqueness of our project:
-    a. Behavioral Analysis: Unlike traditional Captcha systems that rely on visual challenges, our solution focuses on
-       analyzing user behavior, making it more difficult for bots to mimic human actions.
-    b. Machine Learning Integration: Our system continuously learns and adapts to new behavioral patterns, enhancing its
-       effectiveness over time.
-    c. Privacy Considerations: We prioritize user privacy by anonymizing data and ensuring compliance with data protection
-       regulations.

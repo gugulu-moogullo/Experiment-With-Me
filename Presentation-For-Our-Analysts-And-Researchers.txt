@@ -1,0 +1,31 @@
+Presentation-For-Our Analysts-And-Researchers
+
+****************************************************************************************************************************
+---Please Don't Include This Line---
+
+Analysts and Researchers are more important then developers, because they actually know, what a user truly wants, for
+example, see Windows-Operating-System, if they've got some Analysts and Researchers, I would stilluse Windows. And here
+I am, booting the Arch-Linux.
+
+---Please Don't Include This Line---
+****************************************************************************************************************************
+    For Avantika-Kanwar/Chandan-Kumar
+---If I talk about the survey here. To validate the need for our project, we conducted a survey to understand user
+   sentiment about traditional CAPTCHAs.
+---Our findings revealed significant user dissatisfaction. As you can see from this chart, a combined 83.3% of
+   respondents described their experience with traditional CAPTCHAs as either 'very frustrating' or 'frustrating.'
+---The survey also highlighted the most frustrating aspects: 50% found 'solving visual puzzles' the most frustrating
+   part, and 24.1% were frustrated by 'typing distorted text correctly.'
+---These results clearly demonstrate a major pain point and a strong market need for a better solution.
+
+    For Chandan-Kumar/Avantika-Kanwar
+---Building on those findings, we presented our solution, the behavioral CAPTCHA, and asked for user feedback.
+---The results were overwhelmingly positive. When asked to rate the user experience of a system that works in the
+   background, over 69% of respondents rated it as 'Good' or 'Excellent.'
+---We also learned that our approach to offering a behavioral challenge like a drag-and-drop puzzle is more engaging.
+---The survey shows that 48.1% of users found a behavioral challenge to be 'much more engaging' than a traditional
+   CAPTCHA.
+---This data proves that our project not only solves a critical problem but also provides a user experience that
+   people genuinely prefer. These results provide strong evidence for the real-world viability and positive social
+   impact of our project.
+
