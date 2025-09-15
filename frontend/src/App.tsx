@@ -1,7 +1,7 @@
 import React from 'react';
-import CompleteCaptchaSystem from './components/captcha/CompleteCaptchaSystem';
+import IntegratedDemoApp from './components/IntegratedDemoApp';
 function App() {
-    return <CompleteCaptchaSystem />;
+    return <IntegratedDemoApp />;
 }
 
 export default App;
